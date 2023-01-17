@@ -1,0 +1,13 @@
+Find Capacity of Channel Code
+    Use The simplest form of a channel
+    Find Bit lenght or change bit lenght of a message
+    Change some parameters
+    Then plot between Channel Capacity and Bit lenght
+    Move on to Bit Error
+
+    Add some noise to channel and see what happens
+        Noise in form of random number generator which changes the probability of the message
+        See the probability of bit flip
+    
+
+    
