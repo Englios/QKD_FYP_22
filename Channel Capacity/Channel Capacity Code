@@ -9,5 +9,8 @@ Find Capacity of Channel Code
         Noise in form of random number generator which changes the probability of the message
         See the probability of bit flip
     
-
+For a Noiseless Channel (Nyst Theorem)
+    C= 2BLog2^n
+        C= Channel Capacity
+        B= bandwidht
     
