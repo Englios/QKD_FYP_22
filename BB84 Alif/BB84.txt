@@ -1,0 +1,11 @@
+Find the precursor to BB84
+-How people demonstarate BB84
+-Demonstrated on Quantum Circuit/Mathematica
+-Explain more of the backend
+-Know inside out of the BB84
+-can the graphs be predicted by someonelse
+-see more research papers
+
+-Assume channel capacity
+    -See the possibility of finding the channel capacity
+    -

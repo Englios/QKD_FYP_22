@@ -1,0 +1,9 @@
+Numpy & Random 
+    Pseudo RNG's
+        Follow Mersennes Twister as a basis to generate the random numbers
+            Mersenne prime is a prime number that is one less than a power of two. 
+            That is, it is a prime number of the form Mn = 2^n − 1 for some integer n.
+                The Mersenne Twister algorithm generates pseudo-random numbers based on a seed value, 
+                which is used to initialize the internal state of the algorithm. 
+                The state of the algorithm is updated with each call to the random number generator function, 
+                and the output value is derived from the state using a mathematical formula.
