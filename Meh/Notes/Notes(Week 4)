@@ -1,0 +1,13 @@
+test random number generators
+    Type of RNG
+        Correlated
+            What if the Random Number has correlation in the outcome
+                Look into Numpy library
+
+Cryptography
+
+What does bit lenght refers to
+    Over Distance
+        Error Rate increases
+            Loss
+        

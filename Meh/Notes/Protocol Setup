@@ -1,0 +1,37 @@
+BB84 Protocol
+
+    Preparation of Qubit
+        Bits are encoded into qubits by polarzation and bases
+        -Rectilinear Basis (X)
+            -Vertical
+            -Horizontal
+                Bit
+                    |0> = [1,0]
+                    |1> = [0,1]
+        -Diagonal Basis (Z)
+            -Diagonal
+            -Anti-Diagonal
+                Bits
+                    |+> = [1/sqrt(2),1/sqrt(2)]
+                    |-> = [1/sqrt(2),-1/sqrt(2)]
+
+    Send Qubits through Quantum Channel to Bob
+        Set Noise Level(p)
+            Choose random noise below the noise level
+                The matrix multiply the values with the sent Qubits
+                Then Return Noisy Qubits for transmission to Bob
+
+    Bob Decodes Qubit
+        Choosing random bases,Bob decodes qubits for each random bit
+
+    Both Parties share bases used
+        Both parties share the bases they use,for the unmatching bases,bits are discarded
+
+------------------------------------------------------------
+    Error Correction
+
+    Privacy Amplification
+
+-------------------------------------------------------------
+    Sifted Key
+        Key is used to encode and decode transmissions 
