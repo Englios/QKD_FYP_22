@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>SPG1 Green Patches</name>
+	<description>Green patches were highlighted throughout 2 decades of the faculty of science(2001-2021)
+The green patches tells us the biodiversity of the faculty of science.
+Signs of stagnation occurs after 2015,with new buildings being built,the greenery of the faculty of science has not improved since,which causes no shade or cooling by the environment to combat againsnt the increasing heat,due to climate change.
+</description>
+	<gx:CascadingStyle kml:id="__managed_style_1CA77B489A28D7A0BE8F">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff6abb66</color>
+				<width>0.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>409aa626</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_2A1B2CA7BF28D7A06281">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.0.26.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff3c8e38</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>409aa626</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_13E76F9E0728D7A06281">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.0.26.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff3c8e38</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>409aa626</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0C5CD441F428D7A06281">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_13E76F9E0728D7A06281</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_2A1B2CA7BF28D7A06281</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_10D648B19C28D79FC9C1">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff3c8e38</color>
+				<width>0.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>409aa626</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_07220D515728D7A0BE8F">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1CA77B489A28D7A0BE8F</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_2C379A070528D7A0BE8F</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_041CB24F4B28D79FC9C1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_10D648B19C28D79FC9C1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_27A6FDA3CA28D79FC9C1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_0778E10FC528D7950E26">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1FAF6A15E928D7950E26</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_0110AA5F8928D7950E27</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_23B2E313B628D796D839">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.0.26.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ffc6c1bd</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_1DFC7C9BEE28D79AFD08">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.0.26.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff6abb66</color>
+				<width>0.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>409aa626</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_0110AA5F8928D7950E27">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=fbc02d&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_1D41B5D38028D79764C5">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.0.26.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_2C379A070528D7A0BE8F">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff6abb66</color>
+				<width>1.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>409aa626</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_27A6FDA3CA28D79FC9C1">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff3c8e38</color>
+				<width>1.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>409aa626</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0665DDD16928D79AFD08">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1DFC7C9BEE28D79AFD08</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_2B0EE0C9C128D79AFD08</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_08075AC66228D79764C5">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1D41B5D38028D79764C5</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_0A863D766328D79764C6</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_15CB2179F628D796D839">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.0.26.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ffc6c1bd</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_2B0EE0C9C128D79AFD08">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.0.26.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff6abb66</color>
+				<width>1.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>409aa626</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_0A863D766328D79764C6">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.0.26.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_08AF753C8528D796D839">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_15CB2179F628D796D839</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_23B2E313B628D796D839</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_1FAF6A15E928D7950E26">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=fbc02d&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<Placemark id="0B1998354E28D794BFDE">
+		<name>Fakulti Sains (FS), University of Malaya</name>
+		<gx:mid>/g/122chpj1</gx:mid>
+		<gx:fid>0x31cc4971994144b5:0x72ea32bfdb7b82c1</gx:fid>
+		<LookAt>
+			<longitude>101.6539136</longitude>
+			<latitude>3.1219012</latitude>
+			<altitude>0</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1054.786646650918</range>
+			<altitudeMode>relativeToGround</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0778E10FC528D7950E26</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>101.6539136,3.1219012,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B2EB7A2AA28D79641CD">
+		<name>Faculty Science</name>
+		<description><![CDATA[<div>Faculty Of Science University of Malaya<br></div><div><br></div>]]></description>
+		<LookAt>
+			<longitude>101.653814675173</longitude>
+			<latitude>3.124176703603012</latitude>
+			<altitude>41.22790644124948</altitude>
+			<heading>0.5009828422478129</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1042.678795467073</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08AF753C8528D796D839</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						101.6542108718817,3.121534064144627,34.65727854962081 101.6547543038439,3.121505134462097,37.62164795181295 101.6552605566285,3.121719943363853,39.39101093693346 101.6555940000463,3.121904443587979,41.36106244133443 101.6556316015202,3.122279690023686,43.38438525720548 101.6555526185551,3.122738204445784,51.46497561639114 101.6551937741738,3.123129627544062,64.9933549926597 101.6549299552611,3.123632353488145,67.63370603599374 101.6549043404897,3.124512242097666,70.20219558325107 101.654771835009,3.125020061919086,73.45137324322462 101.6546758622373,3.125433241161459,75.60037236323997 101.6545805554894,3.125998457281299,70.85931162756022 101.6544963323492,3.12635453289201,78.26063350481974 101.6542733063483,3.126741924614787,72.25350303739891 101.6538996980666,3.126722403057683,65.90457376842737 101.6534653591854,3.126688589127136,73.88687872391017 101.6530059406091,3.126587012466469,80.0488362057925 101.6525238548832,3.126427223448987,81.15337074100168 101.652360654881,3.126227427593204,83.40683570796126 101.6522531409743,3.125993468417485,73.21946949131542 101.6521703611565,3.125783688349484,56.80689127078862 101.6521983816291,3.12540847901231,58.69408843685169 101.652305980218,3.125196172663045,60.01501287055153 101.6527455540916,3.125178237145774,59.46230396244879 101.6528995348664,3.125036914943355,58.33710753815156 101.652911802961,3.124807606829523,58.17879413685861 101.6529177781433,3.124572074963905,57.93305802930064 101.6528513372667,3.124323351838836,59.77764837635899 101.6527164046281,3.124094116465305,61.06700367766953 101.6525316453003,3.123976627171245,61.84811219984194 101.6522345457837,3.123951906881445,61.82834238661929 101.6521077217663,3.124044687524832,60.09360650859852 101.652046249242,3.124477871155584,60.38229179846406 101.6515408993195,3.124550731619242,39.73506302581942 101.6514121102279,3.124298484584221,38.75508852116701 101.6513130417051,3.123780492726618,39.63782408139098 101.6512861916552,3.123188457798185,41.53643653201998 101.6515997823211,3.122752516309,40.63091919105812 101.6516190766564,3.122601336451723,40.7874953659223 101.651642272217,3.121905189891319,42.74461270040632 101.6519473524638,3.12192000790714,40.69629280825954 101.6538865333812,3.121853063137106,35.70683806561027 101.6542108718817,3.121534064144627,34.65727854962081 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="070AC0F01328D7972B24">
+		<name>New Chemistry Building</name>
+		<description><![CDATA[<div>On Going Build in 2004,Replaced Green Patches here<br></div><div><br></div>]]></description>
+		<LookAt>
+			<longitude>101.6538146751888</longitude>
+			<latitude>3.124176703518482</latitude>
+			<altitude>41.22790644124948</altitude>
+			<heading>0.5009828422478129</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1042.678702756675</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08075AC66228D79764C5</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						101.6539904154138,3.126600525644812,63.2622493627246 101.6535307795396,3.126497737741289,58.63364724309878 101.6535709640544,3.126285609162959,53.04977408340653 101.6534581536791,3.126210665598097,53.62391542543345 101.6533424705949,3.125915496321843,51.93085269847445 101.6534088888346,3.125717395818384,50.48085573499991 101.6536581862397,3.125629901577623,48.93770178939199 101.6541090547881,3.125606355105287,49.54242324208808 101.6543594363669,3.125713553458788,51.68158132373893 101.654274055312,3.126298998722846,58.66639225104193 101.6539904154138,3.126600525644812,63.2622493627246 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0681E56DA828D79884EC">
+		<name>New Lecture Complex</name>
+		<description><![CDATA[<div>Built in 2008,Replaced the green patches before it<br></div><div><br></div>]]></description>
+		<LookAt>
+			<longitude>101.6538146752047</longitude>
+			<latitude>3.124176703433946</latitude>
+			<altitude>41.22798189859505</altitude>
+			<heading>0.5009828422478129</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1042.678610046278</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08075AC66228D79764C5</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						101.6543590502565,3.125584465186777,50.23371698799377 101.6537133325429,3.125499354333542,47.87783038912371 101.6538520349854,3.124854191032996,45.92994231557244 101.6544782528224,3.124939276307496,50.75892823779904 101.6543590502565,3.125584465186777,50.23371698799377 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0CA0EFC9FC28D7992A4A">
+		<name>Kafe Sains</name>
+		<description><![CDATA[<div>Built in 2008,Last green patch seen before 2008<br></div><div><br></div>]]></description>
+		<LookAt>
+			<longitude>101.6538146752205</longitude>
+			<latitude>3.124176703349416</latitude>
+			<altitude>41.2279819000097</altitude>
+			<heading>0.5009828422478129</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1042.678610046278</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08075AC66228D79764C5</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						101.6541780022725,3.124812775895552,47.41144875429867 101.6542248315557,3.124348893415062,45.68232047038218 101.6546044329367,3.124382115535271,51.17885897718433 101.6546013076972,3.124843437747956,52.38507341585571 101.6541780022725,3.124812775895552,47.41144875429867 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0BBFB36A4F28D79A9AFF">
+		<name>Green Patch 1</name>
+		<description><![CDATA[<div>First Seen in 2015</div>]]></description>
+		<LookAt>
+			<longitude>101.6538146752364</longitude>
+			<latitude>3.124176703264888</latitude>
+			<altitude>41.22798189859505</altitude>
+			<heading>0.5009828422434478</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1042.678610046278</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0665DDD16928D79AFD08</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						101.6531474185401,3.12595524851084,58.80148366555231 101.6530292927095,3.12563427432009,54.17834387261604 101.6530732584717,3.125188298561091,51.40385512120914 101.6531622402551,3.124707283373779,50.47276932182484 101.6535553248103,3.124763755442901,43.94502969491441 101.6535197811367,3.124983300913764,45.04016908610498 101.6534590661194,3.125729416531842,50.50623241095362 101.6538478183805,3.125818836831006,51.08047748348901 101.6537688639241,3.126071308415471,53.40155581680007 101.6531474185401,3.12595524851084,58.80148366555231 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0D835AE26528D79B7988">
+		<name>Green Patch 2</name>
+		<description><![CDATA[<div>First Seen in 2014<br></div><div><br></div>]]></description>
+		<LookAt>
+			<longitude>101.6538146752522</longitude>
+			<latitude>3.124176703180358</latitude>
+			<altitude>41.2279819000097</altitude>
+			<heading>0.5009828422434478</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1042.678610046278</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0665DDD16928D79AFD08</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						101.6537220970192,3.124417017659349,41.50279808166108 101.6538456348836,3.124107083620016,41.22779034812866 101.6541105758023,3.124167831459459,43.94417944171426 101.6541620831362,3.12434950001375,45.3347906905085 101.6540713773676,3.124813872244204,47.14227914880283 101.6537444788586,3.124787033360312,44.32524354675148 101.6537220970192,3.124417017659349,41.50279808166108 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="06D48A6F9B28D79FA7C3">
+		<name>Green Patch 3</name>
+		<LookAt>
+			<longitude>101.6534588966225</longitude>
+			<latitude>3.124123522219389</latitude>
+			<altitude>40.81954931246423</altitude>
+			<heading>2.152034380929503e-12</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>1015.77358915747</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_041CB24F4B28D79FC9C1</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						101.653762273805,3.123695246736704,40.11378016691913 101.653983040014,3.123516419136759,38.01421164031415 101.6542223676051,3.123533493908286,40.38388272454583 101.6542928577138,3.123754001458571,43.69000347390817 101.6540948353007,3.124139136632339,43.62104596240516 101.6538612152673,3.124060916161954,41.22772503664141 101.653762273805,3.123695246736704,40.11378016691913 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0E6E4A964528D7A01340">
+		<name>Green Patch 4</name>
+		<description><![CDATA[<div>Unchanging ever since 2001</div>]]></description>
+		<LookAt>
+			<longitude>101.6534590017728</longitude>
+			<latitude>3.124118569059945</latitude>
+			<altitude>40.85568816094057</altitude>
+			<heading>0.4318034679374246</heading>
+			<tilt>0.4883689920588225</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>1015.626550467132</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0C5CD441F428D7A06281</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						101.652937001808,3.124424030078909,57.90231310784912 101.6527214152499,3.124245576914516,60.0115820864754 101.6526759834262,3.124010367548159,61.82771547103504 101.652451343879,3.123914139689272,62.71071005903936 101.6521678823283,3.123883094715072,61.04007108369903 101.6520336760947,3.1244101892009,60.33692066312203 101.6515656544085,3.12446818420797,40.25193292583245 101.6514965788198,3.124269822323158,39.68834716673465 101.6514178558247,3.123851785866179,39.57343005020488 101.6515636049463,3.12358801217658,44.74599050996969 101.6517554392618,3.123202835587076,44.2582617798851 101.6521150618005,3.122990528589477,40.44853400529924 101.6525421316267,3.122930881699753,38.55530037890877 101.6528685465932,3.123241920940254,41.340619187571 101.6534432314187,3.123659477989503,41.84575742397703 101.6533075754342,3.124238147081488,42.5776875491823 101.6531634831258,3.12464619586878,49.44144257386553 101.652995491773,3.12464279235114,56.00716665048024 101.652937001808,3.124424030078909,57.90231310784912 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="044CC1AED028D7A097AE">
+		<name>Green Patch 5</name>
+		<LookAt>
+			<longitude>101.6537987419863</longitude>
+			<latitude>3.12318131628293</latitude>
+			<altitude>36.87384199578625</altitude>
+			<heading>0.4318034622319222</heading>
+			<tilt>0.4883692971030875</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>1019.60846203714</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_07220D515728D7A0BE8F</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						101.6523358581088,3.122862861618679,38.93131515961242 101.6523331692109,3.122663900155601,37.91489619999014 101.6529028498778,3.122679821467067,36.23303365606414 101.6531117634709,3.122625439994668,35.30928390214887 101.6531284594651,3.122735503141482,35.58036206921425 101.6528678161553,3.1228583309253,36.78997775834715 101.6527655979671,3.12296934738829,38.72931126347027 101.6523358581088,3.122862861618679,38.93131515961242 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0EF5744E5728D7A0F6BB">
+		<name>Green Patch 6</name>
+		<LookAt>
+			<longitude>101.6537987419334</longitude>
+			<latitude>3.123181316282926</latitude>
+			<altitude>36.87376653844068</altitude>
+			<heading>0.4318034560377276</heading>
+			<tilt>0.4883692970956245</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>1019.60846203714</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_07220D515728D7A0BE8F</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						101.6543550613451,3.122743443028257,39.71771893001063 101.6543474771519,3.122519641791548,40.7257889997647 101.6541607731792,3.12256124355921,37.87071372437953 101.6541330701255,3.122304136217701,36.3355650024458 101.6545236496446,3.122283214871047,40.02317512420295 101.6546804099694,3.122318825125352,40.39931594866425 101.6547379026263,3.122491360848409,41.93860966113778 101.6547750864733,3.12269461145977,43.0351222486994 101.6546567036008,3.12277323104853,42.0248390874297 101.6543550613451,3.122743443028257,39.71771893001063 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>
