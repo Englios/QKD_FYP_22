@@ -28,7 +28,7 @@ def get_simulated_bits(bit_lenght,number_bits):
     
     return rawvalues_sim,bits_array
 
-def get_real_bits(bit_lenght,number_bits):
+def get_ibmq_bits(bit_lenght,number_bits):
     qr=QuantumRegister(bit_lenght)
     cr=ClassicalRegister(bit_lenght)
     circuit=QuantumCircuit(qr,cr)
@@ -39,7 +39,7 @@ def get_real_bits(bit_lenght,number_bits):
     # mpl.show()
 
     provider = IBMProvider()
-    qbackend = provider.get_backend('ibmq_quito')
+    qbackend = provider.get_backend('ibmq_manila')
     job = execute(circuit, backend=qbackend, shots=number_bits, memory=True)
     rawvalues_ibmq = job.result().get_memory()
     

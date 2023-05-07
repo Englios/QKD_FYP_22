@@ -1,0 +1,10 @@
+simulated_df = pd.DataFrame({'Simulated Bits': flat_s_bits,
+                             'Simulated Counts': sim_counts,
+                             'Byte Array': simulated_bits,
+                             'Simulated Unique Bit': simulated_bytes,
+                             'Simulated Unique Counts': simulated_counts})
+simulated_df.to_csv('Simresults1.csv', index=False)
+
+'C:/Users/alifa/OneDrive/Documents/Universitas Malaya/FYP/Quantum/Meh/RNG Results/Random Number Generator/RNGresults1.txt'
+'C:/Users/alifa/OneDrive/Documents/Universitas Malaya/FYP/Quantum/Meh/RNG Results/IBMQ/IBMQresults1.txt'
+'C:/Users/alifa/OneDrive/Documents/Universitas Malaya/FYP/Quantum/Meh/RNG Results/QRNG Simulator/Simresults1.txt'
