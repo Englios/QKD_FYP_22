@@ -2,6 +2,9 @@ import numpy as np
 import random
 import matplotlib.pyplot as plt
 
+n_runs = 10
+distances = [10, 20, 30, 40, 50]
+bit_lengths = [50, 100, 150, 200, 250]
 
 bases=["X","Z"]
 #Z basis Matrices
@@ -140,64 +143,69 @@ class Eavesdropper:
 
         return intercepted_qubits,eve_bases,measurements,eve_bits
 
-n_runs = 10
-distances = [10, 20, 30, 40, 50]
-bit_lengths = [50, 100, 150, 200, 250]
+    
+distance=50
 
-for distance in distances:
-    print('Distance: ', distance)
-    for n in bit_lengths:
-        print('Bit Length: ', n)
-        matching_bits_total = 0
-        final_key_total = 0
-        error_rate_total = 0
-        for run in range(n_runs):  
-            """# Generate random bit sequence for the message"""
-            sender = Sender()
-            alice_qubits, alice_bases, alice_bits = sender.generate_message()
+# print('Distance: ',distance)
+"""# Generate random bit sequence for the message"""
+sender = Sender()
+alice_qubits, alice_bases, alice_bits = sender.generate_message()
 
-            """#Transmit Qubits over Quantum Channel"""
-            quantum_channel = QuantumChannel(distance)
-            noisy_qubits = [quantum_channel.apply_noise(q.qubit) for q in alice_qubits]
+"""#Transmit Qubits over Quantum Channel"""
+quantum_channel=QuantumChannel(distance)
+noisy_qubits=[quantum_channel.apply_noise(q.qubit) for q in alice_qubits]
 
-            """#Initialize Eve"""
-            eve = Eavesdropper()
-            eve_bases = [random.choice(bases) for i in range(n)]
-            intercepted_qubits, _, intercepted_measurements, intercepted_bits = eve.intercept_and_forward(noisy_qubits, eve_bases, alice_bits)
 
-            """#Transmit the bases over the public channel"""
-            public_channel = PublicChannel()
-            bob_bases = [random.choice(bases) for i in range(n)]
+alice_qubits=np.array([qubit.qubit for qubit in alice_qubits])
 
-            """# Measure the qubits based on the received bases"""
-            receiver = Receiver()
-            bob_qubits, bob_bases, bob_measurements, bob_bits = receiver.measure_qubits(intercepted_qubits, bob_bases)
+"""# Printing Alice's Information"""
+print('Alice Bits \n',alice_bits)
+print('Alice Bases \n',alice_bases)
+# print('Alice Qubits \n',alice_qubits)
 
-            """Create Key"""
-            matching_bits = []
-            matching_bases = []
-            matching_indices = []
+"""#Initialize Eve"""
+eve=Eavesdropper()
+eve_bases=[random.choice(bases) for i in range(n)]
+intercepted_qubits,_,intercepted_measurements,intercepted_bits=eve.intercept_and_forward(noisy_qubits,eve_bases,alice_bits)
+"""Print Eve Information"""
+# print('Eve bases\n',eve_bases)
+# print('Intercepted Qubits\n',intercepted_qubits)
+# print('Intercepted Bits\n',intercepted_bits)
+# print('Intercepted Measurements \n',intercepted_measurements)
+# qubit_check = np.array_equal(intercepted_qubits, alice_qubits)
+# print(qubit_check)
 
-            for i in range(len(alice_bits)):
-                if alice_bases[i] == bob_bases[i]:
-                    matching_bases.append(alice_bases[i])
-                    matching_indices.append(i)
-                    if alice_bits[i] == bob_bits[i]:
-                        matching_bits.append(alice_bits[i])
 
-            """Error"""
-            mismatches = len(bob_bits) - len(matching_bits)
-            error_rate = mismatches / len(bob_bits)
+"""#Transmit the bases over the public channel"""
+public_channel=PublicChannel()
+bob_bases=[random.choice(bases) for i in range(n)]
+print('Bob Bases \n',bob_bases)
 
-            matching_bits_total += matching_bits
-            final_key_total += "".join(str(bit) for bit in str(matching_bits))
-            error_rate_total += error_rate
+"""# Measure the qubits based on the received bases"""
+receiver = Receiver()
+bob_qubits,bob_bases,bob_measurements,bob_bits = receiver.measure_qubits(intercepted_qubits, bob_bases)
+# print("Bob QuBits \n",bob_qubits)
+# print('BOB Measurements \n',bob_measurements)
+print("Bob Bits \n",bob_bits)
 
-        matching_bits_avg = matching_bits_total / n_runs
-        final_key_avg = final_key_total / n_runs
-        error_rate_avg = error_rate_total / n_runs
+"""Create Key"""
+matching_bits = []
+matching_bases = []
+matching_indices = []
 
-        print("Average matching bits: ", matching_bits_avg)
-        print("Average final key: ", final_key_avg)
-        print("Average error rate: {:.2%}".format(error_rate_avg))
-        print("------")
+for i in range(len(alice_bits)):
+    if alice_bases[i] == bob_bases[i]:
+        matching_bases.append(alice_bases[i])
+        matching_indices.append(i)
+        if alice_bits[i] == bob_bits[i]:
+            matching_bits.append(alice_bits[i])
+            
+"""Error"""            
+mismatches = len(bob_bits) - len(matching_bits)
+error_rate = mismatches / len(bob_bits)
+print("Error rate:", error_rate)
+print("Error rate: {:.2%}".format(error_rate))
+            
+print("Matching bits:", matching_bits)
+print("Matching bases:", matching_bases)
+print("Matching indices:", matching_indices)

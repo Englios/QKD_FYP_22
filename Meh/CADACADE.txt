@@ -1,0 +1,67 @@
+class CascadeEncoder:
+    def __init__(self, n, k) -> None:
+        self.n = n
+        self.k = k
+        self.code = self.create_code()
+
+    def create_code(self):
+        # Generate an n-qubit stabilizer code with k logical qubits
+        code = np.zeros((self.n, self.n))
+        for i in range(self.k):
+            code[i, i] = 1
+        for i in range(self.k, self.n):
+            code[i, i-self.k] = 1
+        return code
+
+    def encode_qubits(self, qubits):
+        # Encode a block of physical qubits in the code
+        encoded_qubits = []
+        for i in range(0, len(qubits), self.k):
+            block = qubits[i:i+self.k]
+            encoded_block = np.array([qubit.qubit for qubit in block]).T @ self.code
+            encoded_qubits.extend([Qubit(bit, 'Z') for bit in encoded_block])
+        return encoded_qubits
+
+    def decode_qubits(self, qubits):
+        # Decode a block of logical qubits from the code
+        decoded_qubits = []
+        for i in range(0, len(qubits), self.n):
+            block = qubits[i:i+self.n]
+            syndrome = block @ self.code.T % 2
+            error = np.sum(syndrome * np.arange(self.n)) % self.n
+            decoded_qubits.extend(block[error:error+self.k])
+        return decoded_qubits
+
+
+class CascadeErrorCorrector:
+    def __init__(self, n, k) -> None:
+        self.encoder = CascadeEncoder(n, k)
+        self.measurements = []
+
+    def correct_errors(self, qubits, bases):
+        # Encode the qubits in the code and perform measurements in the Z basis
+        encoded_qubits = self.encoder.encode_qubits(qubits)
+        encoded_bases = ['Z' for _ in range(len(encoded_qubits))]
+        measurements = [Qubit(0, 'Z').decode_qubit(qubit) for qubit in encoded_qubits]
+
+        # Update the measurements with the bases used for encoding
+        for i in range(0, len(qubits), self.encoder.k):
+            block = measurements[i:i+self.encoder.k]
+            base = bases[i]
+            if base == 'X':
+                block = [1-x for x in block]
+            self.measurements.extend(block)
+
+        # Decode the logical qubits from the code
+        decoded_qubits = self.encoder.decode_qubits(encoded_qubits)
+
+        # Apply X corrections to the logical qubits based on the measurements
+        corrected_qubits = []
+        for i in range(0, len(decoded_qubits), self.encoder.k):
+            block = decoded_qubits[i:i+self.encoder.k]
+            measurements = self.measurements[i:i+self.encoder.k]
+            error = sum([m << j for j, m in enumerate(measurements)]) % 2
+            corrected_block = [Qubit((bit+error)%2, 'Z') for bit in block]
+            corrected_qubits.extend(corrected_block)
+
+        return corrected_qubits
