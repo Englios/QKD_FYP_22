@@ -140,34 +140,50 @@ class Eavesdropper:
 
         return intercepted_qubits,eve_bases,measurements,eve_bits
 
-n_runs = 10
+
+# Initialize arrays to store the data
+error_rates = []
+data_loss = []
+final_key_lengths = []
+
+# Define the parameter values to loop over
+n_runs = [np.linspace(1,10,1)]
 distances = [10, 20, 30, 40, 50]
 bit_lengths = [50, 100, 150, 200, 250]
 
+# Loop over the parameter values
 for distance in distances:
     print('Distance: ', distance)
+    error_rates_row = []
+    data_loss_row = []
+    final_key_lengths_row = []
+    
     for n in bit_lengths:
         print('Bit Length: ', n)
-        matching_bits_total = 0
-        final_key_total = 0
-        error_rate_total = 0
-        for run in range(n_runs):  
+        error_rates_run = []
+        data_loss_run = []
+        final_key_lengths_run = []
+        
+        for run in n_runs:  
+            print('Run: ', run)
             """# Generate random bit sequence for the message"""
             sender = Sender()
             alice_qubits, alice_bases, alice_bits = sender.generate_message()
 
             """#Transmit Qubits over Quantum Channel"""
-            quantum_channel = QuantumChannel(distance)
-            noisy_qubits = [quantum_channel.apply_noise(q.qubit) for q in alice_qubits]
+            quantum_channel=QuantumChannel(distance)
+            noisy_qubits=[quantum_channel.apply_noise(q.qubit) for q in alice_qubits]
+
+            alice_qubits=np.array([qubit.qubit for qubit in alice_qubits])
 
             """#Initialize Eve"""
-            eve = Eavesdropper()
-            eve_bases = [random.choice(bases) for i in range(n)]
+            eve=Eavesdropper()
+            eve_bases=[random.choice(bases) for i in range(n)]
             intercepted_qubits, _, intercepted_measurements, intercepted_bits = eve.intercept_and_forward(noisy_qubits, eve_bases, alice_bits)
 
             """#Transmit the bases over the public channel"""
-            public_channel = PublicChannel()
-            bob_bases = [random.choice(bases) for i in range(n)]
+            public_channel=PublicChannel()
+            bob_bases=[random.choice(bases) for i in range(n)]
 
             """# Measure the qubits based on the received bases"""
             receiver = Receiver()
@@ -185,19 +201,47 @@ for distance in distances:
                     if alice_bits[i] == bob_bits[i]:
                         matching_bits.append(alice_bits[i])
 
-            """Error"""
+            """Error"""            
             mismatches = len(bob_bits) - len(matching_bits)
             error_rate = mismatches / len(bob_bits)
+            data_loss_rate = len(bob_bits)-len(matching_bits) / len(bob_bits)
+            final_key_length = len(matching_bits)
+            
+            error_rates_run.append(error_rate)
+            data_loss_run.append(data_loss_rate)
+            final_key_lengths_run.append(final_key_length)
+            
+        error_rates_row.append(sum(error_rates_run) / n_runs)
+        data_loss_row.append(sum(data_loss_run) / n_runs)
+        final_key_lengths_row.append(sum(final_key_lengths_run) / n_runs)
 
-            matching_bits_total += matching_bits
-            final_key_total += "".join(str(bit) for bit in str(matching_bits))
-            error_rate_total += error_rate
+    error_rates.append(error_rates_row)
+    data_loss.append(data_loss_row)
+    final_key_lengths.append(final_key_lengths_row)
 
-        matching_bits_avg = matching_bits_total / n_runs
-        final_key_avg = final_key_total / n_runs
-        error_rate_avg = error_rate_total / n_runs
+# Plot the results
+fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+titles = ['Error Rates', 'Data Loss', 'Final Key Lengths']
+data = [error_rates, data_loss, final_key_lengths]
 
-        print("Average matching bits: ", matching_bits_avg)
-        print("Average final key: ", final_key_avg)
-        print("Average error rate: {:.2%}".format(error_rate_avg))
-        print("------")
+for i in range(len(titles)):
+    axs[i].set_title(titles[i])
+    axs[i].set_xlabel('Bit Length')
+    axs[i].set_ylabel('Distance')
+    axs[i].set_xticks(np.arange(len(distances)))
+    axs[i].set_yticks(np.arange(len(bit_lengths)))
+    axs[i].imshow(data[i], cmap='hot')
+
+plt.show()
+
+fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+titles = ['Error Rates', 'Data Loss', 'Final Key Lengths']
+data = [error_rates, data_loss, final_key_lengths]
+
+for i in range(len(titles)):
+    axs[i].set_title(titles[i])
+    axs[i].set_xlabel('Distance')
+    axs[i].set_ylabel(data[i])
+    axs[i].plot(bit_lengths,data[i])
+
+plt.show()
