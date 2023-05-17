@@ -1,6 +1,7 @@
 import numpy as np
 import random
 import matplotlib.pyplot as plt
+import ipywidgets as widgets
 
 
 bases=["X","Z"]
@@ -148,13 +149,13 @@ class Eavesdropper:
 n_runs = 10
 distances = [10, 20, 30, 40, 50,60,70,80,90,100]
 bit_length = [50, 100, 150, 200, 250,300,350,400,450,500]
-n=15
+n=10
 distance=1000
 
 
 """# Initialize arrays to store the data"""
 error_rates = []
-data_loss = []
+data_loss_rates = []
 final_key_lengths = []
 
 """Arrays to store data of keys"""
@@ -165,9 +166,53 @@ alice_sifted_key=[]
 final_sifted_key=[]
 
 # print('Run: ', run)
+
 """# Generate random bit sequence for the message"""
 sender = Sender()
 alice_qubits, alice_bases, alice_bits = sender.generate_message()
+
+"""Interactive Python"""
+# Create the interactive plot
+fig, ax = plt.subplots()
+
+# Initialize the plot with the initial qubit states
+for i, qubit in enumerate(alice_qubits):
+    ax.bar([i], [abs(qubit.qubit[0])**2], label='0')
+    ax.bar([i], [abs(qubit.qubit[1])**2], bottom=[abs(qubit.qubit[0])**2], label='1')
+
+ax.set_xticks(range(len(alice_qubits)))
+ax.set_xticklabels([f'Qubit {i+1}' for i in range(len(alice_qubits))])
+ax.set_ylabel('Probability')
+ax.set_title('Qubit States')
+ax.legend()
+
+# Define the update function
+def update_simulation(step):
+    # Perform the simulation up to the current step
+    # Modify your existing code to update the relevant variables or perform calculations
+    
+    # Update the plot with the new qubit states
+    ax.clear()
+    for i, qubit in enumerate(alice_qubits):
+        ax.bar([i], [abs(qubit.qubit[0])**2], label='0')
+        ax.bar([i], [abs(qubit.qubit[1])**2], bottom=[abs(qubit.qubit[0])**2], label='1')
+
+    ax.set_xticks(range(len(alice_qubits)))
+    ax.set_xticklabels([f'Qubit {i+1}' for i in range(len(alice_qubits))])
+    ax.set_ylabel('Probability')
+    ax.set_title('Qubit States')
+    ax.legend()
+    
+    # Redraw the plot
+    fig.canvas.draw()
+
+# Create the interactive slider widget
+simulation_slider = widgets.IntSlider(min=0, max=len(alice_qubits)-1, description='Simulation Step:')
+widgets.interact(update_simulation, step=simulation_slider)
+
+# Show the plot
+plt.show()
+
 
 """#Transmit Qubits over Quantum Channel"""
 quantum_channel=QuantumChannel(distance)
@@ -199,19 +244,40 @@ for i in range(len(alice_bits)):
             final_sifted_key.append(alice_bits[i])
 
 data_loss=(n-len(bob_sifted_key))/n    
-error_rate=(len(bob_sifted_key)-len(final_sifted_key))/(len(bob_sifted_key))   
+error_rate=(len(bob_sifted_key)-len(final_sifted_key))/(len(bob_sifted_key))
 
-"""Key Printing """
-print('Alice Bits \n',alice_bits) 
-print('Alice Bases \n',alice_bases)    
-print('Bob Bits \n',bob_bits)
-print('Bob Bases \n',bob_bases)
-print('Matching Bases \n',matching_bases)
-print('Alice Sifted Key \n',alice_sifted_key)       
-print('Bob Sifted Key \n',bob_sifted_key)
-print('Sifted Key Lenght \n',len(matching_indices))  
-print('Final Key \n',final_sifted_key)
-print('Final Key Lenght \n',len(final_sifted_key)) 
-print('Data Loss Rate \n',data_loss)
-print('Error Rate\n',error_rate) 
-   
+# """Key Printing """
+# print('Alice Bits \n',alice_bits) 
+# print('Alice Bases \n',alice_bases)    
+# print('Bob Bits \n',bob_bits)
+# print('Bob Bases \n',bob_bases)
+# print('Matching Bases \n',matching_bases)
+# print('Alice Sifted Key \n',alice_sifted_key)       
+# print('Bob Sifted Key \n',bob_sifted_key)
+# print('Sifted Key Lenght \n',len(matching_indices))  
+# print('Final Key \n',final_sifted_key)
+# print('Final Key Lenght \n',len(final_sifted_key)) 
+# print('Data Loss Rate \n',data_loss)
+# print('Error Rate\n',error_rate) 
+
+data_loss_rates.append(data_loss)   
+error_rates.append(error_rate)
+
+print(data_loss_rates)
+print(error_rates)
+
+
+# plt.plot(distances,data_loss_rates,label="Data Loss Rates")
+# plt.xlabel("Distances (km)")
+# plt.ylabel("Data Loss (bytes)")
+# plt.title("Data Loss")
+# plt.legend()
+# plt.show()
+
+# plt.plot(distances,error_rates,label="Error Rates")
+# plt.xlabel("Distances (km)")
+# plt.ylabel("Errors")
+# plt.title("Error Rates")
+# plt.legend()
+# plt.show()
+

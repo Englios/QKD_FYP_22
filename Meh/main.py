@@ -28,14 +28,18 @@ class QuantumChannel:
         return self.max_noise_level * np.exp(-(self.distance)**2/100)
 
     def apply_noise(self, qubit):
-        error = np.random.rand() < self.error_probability
-        if error:
-            pauli_error = random.choice([X, Z])
-            noisy_qubit = pauli_error @ qubit
-        else:
-            noisy_qubit = qubit
+            error = np.random.rand() < self.error_probability
+            if error:
+                pauli_error = random.choice([X, Z])
+                noisy_qubit = pauli_error @ qubit
+            else:
+                noisy_qubit = qubit
 
-        return noisy_qubit
+            noise = np.random.normal(0, self.noise_level, size=noisy_qubit.shape)
+            noisy_qubit = np.add(noisy_qubit, noise)
+
+            return noisy_qubit
+
     
 class PublicChannel:
     def __init__(self) -> None:
@@ -140,108 +144,96 @@ class Eavesdropper:
 
         return intercepted_qubits,eve_bases,measurements,eve_bits
 
+"""# Define the parameter values to loop over"""
+n_runs = 10
+distances = [10, 20, 30, 40, 50,60,70,80,90,100]
+bit_length = [50, 100, 150, 200, 250,300,350,400,450,500]
+n=10
+distance=1000
 
-# Initialize arrays to store the data
+
+"""# Initialize arrays to store the data"""
 error_rates = []
-data_loss = []
+data_loss_rates = []
 final_key_lengths = []
 
-# Define the parameter values to loop over
-n_runs = [np.linspace(1,10,1)]
-distances = [10, 20, 30, 40, 50]
-bit_lengths = [50, 100, 150, 200, 250]
+"""Arrays to store data of keys"""
+matching_bases = []
+matching_indices = []
+bob_sifted_key=[]
+alice_sifted_key=[]
+final_sifted_key=[]
 
-# Loop over the parameter values
+# print('Run: ', run)
 for distance in distances:
-    print('Distance: ', distance)
-    error_rates_row = []
-    data_loss_row = []
-    final_key_lengths_row = []
+    """# Generate random bit sequence for the message"""
+    sender = Sender()
+    alice_qubits, alice_bases, alice_bits = sender.generate_message()
+
+    """#Transmit Qubits over Quantum Channel"""
+    quantum_channel=QuantumChannel(distance)
+    noisy_qubits=[quantum_channel.apply_noise(q.qubit) for q in alice_qubits]
+
+    alice_qubits=np.array([qubit.qubit for qubit in alice_qubits])
+
+    """#Initialize Eve"""
+    eve=Eavesdropper()
+    eve_bases=[random.choice(bases) for i in range(n)]
+    intercepted_qubits, _, intercepted_measurements, intercepted_bits = eve.intercept_and_forward(noisy_qubits, eve_bases, alice_bits)
+
+    """#Transmit the bases over the public channel"""
+    public_channel=PublicChannel()
+    bob_bases=[random.choice(bases) for i in range(n)]
+
+    """# Measure the qubits based on the received bases"""
+    receiver = Receiver()
+    bob_qubits, bob_bases, bob_measurements, bob_bits = receiver.measure_qubits(intercepted_qubits, bob_bases)
+
+
+    for i in range(len(alice_bits)):
+        if alice_bases[i] == bob_bases[i]:
+            matching_bases.append(alice_bases[i])
+            matching_indices.append(i)
+            alice_sifted_key.append(alice_bits[i])
+            bob_sifted_key.append(bob_bits[i])
+            if bob_bits[i]== alice_bits[i]:
+                final_sifted_key.append(alice_bits[i])
+
+    data_loss=(n-len(bob_sifted_key))/n    
+    error_rate=(len(bob_sifted_key)-len(final_sifted_key))/(len(bob_sifted_key))
     
-    for n in bit_lengths:
-        print('Bit Length: ', n)
-        error_rates_run = []
-        data_loss_run = []
-        final_key_lengths_run = []
-        
-        for run in n_runs:  
-            print('Run: ', run)
-            """# Generate random bit sequence for the message"""
-            sender = Sender()
-            alice_qubits, alice_bases, alice_bits = sender.generate_message()
+    # """Key Printing """
+    # print('Alice Bits \n',alice_bits) 
+    # print('Alice Bases \n',alice_bases)    
+    # print('Bob Bits \n',bob_bits)
+    # print('Bob Bases \n',bob_bases)
+    # print('Matching Bases \n',matching_bases)
+    # print('Alice Sifted Key \n',alice_sifted_key)       
+    # print('Bob Sifted Key \n',bob_sifted_key)
+    # print('Sifted Key Lenght \n',len(matching_indices))  
+    # print('Final Key \n',final_sifted_key)
+    # print('Final Key Lenght \n',len(final_sifted_key)) 
+    # print('Data Loss Rate \n',data_loss)
+    # print('Error Rate\n',error_rate) 
 
-            """#Transmit Qubits over Quantum Channel"""
-            quantum_channel=QuantumChannel(distance)
-            noisy_qubits=[quantum_channel.apply_noise(q.qubit) for q in alice_qubits]
+    data_loss_rates.append(data_loss)   
+    error_rates.append(error_rate)
 
-            alice_qubits=np.array([qubit.qubit for qubit in alice_qubits])
+print(data_loss_rates)
+print(error_rates)
 
-            """#Initialize Eve"""
-            eve=Eavesdropper()
-            eve_bases=[random.choice(bases) for i in range(n)]
-            intercepted_qubits, _, intercepted_measurements, intercepted_bits = eve.intercept_and_forward(noisy_qubits, eve_bases, alice_bits)
 
-            """#Transmit the bases over the public channel"""
-            public_channel=PublicChannel()
-            bob_bases=[random.choice(bases) for i in range(n)]
-
-            """# Measure the qubits based on the received bases"""
-            receiver = Receiver()
-            bob_qubits, bob_bases, bob_measurements, bob_bits = receiver.measure_qubits(intercepted_qubits, bob_bases)
-
-            """Create Key"""
-            matching_bits = []
-            matching_bases = []
-            matching_indices = []
-
-            for i in range(len(alice_bits)):
-                if alice_bases[i] == bob_bases[i]:
-                    matching_bases.append(alice_bases[i])
-                    matching_indices.append(i)
-                    if alice_bits[i] == bob_bits[i]:
-                        matching_bits.append(alice_bits[i])
-
-            """Error"""            
-            mismatches = len(bob_bits) - len(matching_bits)
-            error_rate = mismatches / len(bob_bits)
-            data_loss_rate = len(bob_bits)-len(matching_bits) / len(bob_bits)
-            final_key_length = len(matching_bits)
-            
-            error_rates_run.append(error_rate)
-            data_loss_run.append(data_loss_rate)
-            final_key_lengths_run.append(final_key_length)
-            
-        error_rates_row.append(sum(error_rates_run) / n_runs)
-        data_loss_row.append(sum(data_loss_run) / n_runs)
-        final_key_lengths_row.append(sum(final_key_lengths_run) / n_runs)
-
-    error_rates.append(error_rates_row)
-    data_loss.append(data_loss_row)
-    final_key_lengths.append(final_key_lengths_row)
-
-# Plot the results
-fig, axs = plt.subplots(1, 3, figsize=(15, 5))
-titles = ['Error Rates', 'Data Loss', 'Final Key Lengths']
-data = [error_rates, data_loss, final_key_lengths]
-
-for i in range(len(titles)):
-    axs[i].set_title(titles[i])
-    axs[i].set_xlabel('Bit Length')
-    axs[i].set_ylabel('Distance')
-    axs[i].set_xticks(np.arange(len(distances)))
-    axs[i].set_yticks(np.arange(len(bit_lengths)))
-    axs[i].imshow(data[i], cmap='hot')
-
+plt.plot(distances,data_loss_rates,label="Data Loss Rates")
+plt.xlabel("Distances (km)")
+plt.ylabel("Data Loss (bytes)")
+plt.title("Data Loss")
+plt.legend()
 plt.show()
 
-fig, axs = plt.subplots(1, 3, figsize=(15, 5))
-titles = ['Error Rates', 'Data Loss', 'Final Key Lengths']
-data = [error_rates, data_loss, final_key_lengths]
-
-for i in range(len(titles)):
-    axs[i].set_title(titles[i])
-    axs[i].set_xlabel('Distance')
-    axs[i].set_ylabel(data[i])
-    axs[i].plot(bit_lengths,data[i])
-
+plt.plot(distances,error_rates,label="Error Rates")
+plt.xlabel("Distances (km)")
+plt.ylabel("Errors")
+plt.title("Error Rates")
+plt.legend()
 plt.show()
+
